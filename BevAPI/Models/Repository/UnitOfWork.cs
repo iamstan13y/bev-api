@@ -1,8 +1,9 @@
 ﻿using BevAPI.Models.Data;
+using BevAPI.Models.Repository.IRepository;
 
 namespace BevAPI.Models.Repository
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
 
