@@ -9,14 +9,12 @@ namespace BevAPI.Models.Repository
     public class AccountRepository : IAccountRepository
     {
         private readonly AppDbContext _context;
-        private readonly IConfiguration _configuration;
         private readonly IPasswordService _passwordService;
         private readonly IJwtService _jwtService;
 
-        public AccountRepository(AppDbContext context, IConfiguration configuration, IPasswordService passwordService, IJwtService jwtService)
+        public AccountRepository(AppDbContext context, IPasswordService passwordService, IJwtService jwtService)
         {
             _context = context;
-            _configuration = configuration;
             _passwordService = passwordService;
             _jwtService = jwtService;
         }
