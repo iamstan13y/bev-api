@@ -1,6 +1,7 @@
 ﻿using BevAPI.Models.Data;
 using BevAPI.Models.Local;
 using BevAPI.Models.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BevAPI.Controllers
@@ -25,6 +26,16 @@ namespace BevAPI.Controllers
             });
 
             if(!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await _accountRepository.GetByIdAsync(id);
+            if (!result.Success) return NotFound(result);
 
             return Ok(result);
         }
