@@ -65,9 +65,19 @@ namespace BevAPI.Models.Repository
             return new Result<Account>(account);
         }
 
-        public Task<Result<Account>> LoginAsync(LoginRequest request)
+        public async Task<Result<Account>> LoginAsync(LoginRequest request)
         {
-            throw new NotImplementedException();
+            var account = await _context.Accounts!
+               .Where(x => x.Email == request.Email)
+               .FirstOrDefaultAsync();
+
+            if (account == null || _passwordService.VerifyHash(request.Password!, account!.Password!) == false)
+                return new Result<Account>(false, "Username or password is incorrect!");
+
+            account.Token = await _jwtService.GenerateTokenAsync(account);
+            account.Password = "***********";
+
+            return new Result<Account>(account);
         }
 
         public Task<Result<Account>> UpdateAsync(Account account)
