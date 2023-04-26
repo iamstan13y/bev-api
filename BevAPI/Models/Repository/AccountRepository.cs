@@ -57,9 +57,12 @@ namespace BevAPI.Models.Repository
             throw new NotImplementedException();
         }
 
-        public Task<Result<Account>> GetByIdAsync(int id)
+        public async Task<Result<Account>> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var account = await _context.Accounts!.FindAsync(id);
+            if (account == null) return new Result<Account>(false, "Account not found.");
+
+            return new Result<Account>(account);
         }
 
         public Task<Result<Account>> LoginAsync(LoginRequest request)
