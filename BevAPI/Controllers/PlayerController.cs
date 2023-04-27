@@ -9,9 +9,9 @@ namespace BevAPI.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public PlayerController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        public PlayerController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
+
+        [HttpGet]
+        public async Task<IActionResult> Get() => Ok(await _unitOfWork.Player.GetAllAsync());
     }
 }
