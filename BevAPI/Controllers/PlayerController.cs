@@ -13,5 +13,14 @@ namespace BevAPI.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _unitOfWork.Player.GetAllAsync());
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await _unitOfWork.Player.FindAsync(id);
+            if (!result.Success) return NotFound(result);
+
+            return Ok(result);
+        }
     }
 }
