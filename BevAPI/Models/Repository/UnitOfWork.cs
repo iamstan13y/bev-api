@@ -9,12 +9,13 @@ namespace BevAPI.Models.Repository
 
         public IPlayerRepository Player { get; private set; }
         public IDrillRepository Drill { get; private set; }
+        public IPlayerDrillRepository PlayerDrill { get; private set; }
 
         public UnitOfWork(AppDbContext context)
         {
             Player = new PlayerRepository(context);
             Drill = new DrillRepository(context);
-
+            PlayerDrill = new PlayerDrillRepository(context);
             _context = context;
         }
 
