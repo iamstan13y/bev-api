@@ -4,6 +4,7 @@
     {
         IPlayerRepository Player { get; }
         IDrillRepository Drill { get; }
+        IPlayerDrillRepository PlayerDrill { get; }
 
         void SaveChanges();
     }
