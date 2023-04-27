@@ -9,4 +9,9 @@
         public double Weight { get; set; }
         public double Height { get; set; }
     }
+
+    public class UpdatePlayerRequest : PlayerRequest
+    {
+        public int Id { get; set; }
+    }
 }
