@@ -42,17 +42,13 @@ namespace BevAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(UpdatePlayerRequest request)
+        public async Task<IActionResult> Put(UpdateDrillRequest request)
         {
-            var result = await _unitOfWork.Player.UpdateAsync(new Player
+            var result = await _unitOfWork.Drill.UpdateAsync(new Drill
             {
                 Id = request.Id,
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                Position = request.Position,
-                Height = request.Height,
-                Weight = request.Weight,
-                KitNumber = request.KitNumber
+                MaxMark = request.MaxMark,
+                MinMark = request.MinMark
             });
 
             _unitOfWork.SaveChanges();
