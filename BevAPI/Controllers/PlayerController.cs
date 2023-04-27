@@ -38,6 +38,8 @@ namespace BevAPI.Controllers
                 KitNumber = request.KitNumber
             });
 
+            _unitOfWork.SaveChanges();
+
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
@@ -57,6 +59,8 @@ namespace BevAPI.Controllers
                 KitNumber = request.KitNumber
             });
 
+            _unitOfWork.SaveChanges();
+            
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
