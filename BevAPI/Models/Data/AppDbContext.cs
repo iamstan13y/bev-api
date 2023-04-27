@@ -11,5 +11,6 @@ namespace BevAPI.Models.Data
         public DbSet<Account>? Accounts { get; set; }
         public DbSet<Player>? Players { get; set; }
         public DbSet<Drill>? Drills { get; set; }
+        public DbSet<PlayerDrill>? PlayerDrills { get; set; }
     }
 }
