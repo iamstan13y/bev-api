@@ -102,6 +102,38 @@ namespace BevAPI.Migrations
 
                     b.ToTable("Players");
                 });
+
+            modelBuilder.Entity("BevAPI.Models.Data.PlayerDrill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("DrillMark")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("PlayerDrills");
+                });
+
+            modelBuilder.Entity("BevAPI.Models.Data.PlayerDrill", b =>
+                {
+                    b.HasOne("BevAPI.Models.Data.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Player");
+                });
 #pragma warning restore 612, 618
         }
     }
