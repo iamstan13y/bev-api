@@ -42,5 +42,24 @@ namespace BevAPI.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(UpdatePlayerRequest request)
+        {
+            var result = await _unitOfWork.Player.UpdateAsync(new Player
+            {
+                Id = request.Id,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Position = request.Position,
+                Height = request.Height,
+                Weight = request.Weight,
+                KitNumber = request.KitNumber
+            });
+
+            if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
     }
 }
