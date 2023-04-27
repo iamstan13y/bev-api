@@ -1,6 +1,5 @@
 ﻿using BevAPI.Models.Data;
 using BevAPI.Models.Local;
-using BevAPI.Utility;
 
 namespace BevAPI.Models.Repository.IRepository
 {
