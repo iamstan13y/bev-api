@@ -7,8 +7,12 @@ namespace BevAPI.Models.Repository
     {
         private readonly AppDbContext _context;
 
+        public IPlayerRepository Player { get; private set; }
+
         public UnitOfWork(AppDbContext context)
         {
+            Player = new PlayerRepository(context);
+
             _context = context;
         }
 
