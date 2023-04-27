@@ -2,6 +2,7 @@
 {
     public interface IUnitOfWork
     {
+        IPlayerRepository Player { get; }
         void SaveChanges();
     }
 }
