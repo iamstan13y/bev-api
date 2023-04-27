@@ -50,6 +50,28 @@ namespace BevAPI.Migrations
                     b.ToTable("Accounts");
                 });
 
+            modelBuilder.Entity("BevAPI.Models.Data.Drill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MaxMark")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinMark")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Drills");
+                });
+
             modelBuilder.Entity("BevAPI.Models.Data.Player", b =>
                 {
                     b.Property<int>("Id")
