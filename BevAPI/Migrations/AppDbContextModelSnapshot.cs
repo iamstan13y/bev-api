@@ -64,7 +64,13 @@ namespace BevAPI.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
+                    b.Property<int>("KitNumber")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Weight")
