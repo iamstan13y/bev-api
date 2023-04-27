@@ -1,4 +1,6 @@
-﻿using BevAPI.Models.Repository.IRepository;
+﻿using BevAPI.Models.Data;
+using BevAPI.Models.Local;
+using BevAPI.Models.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BevAPI.Controllers
@@ -19,6 +21,24 @@ namespace BevAPI.Controllers
         {
             var result = await _unitOfWork.Player.FindAsync(id);
             if (!result.Success) return NotFound(result);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(PlayerRequest request)
+        {
+            var result = await _unitOfWork.Player.AddAsync(new Player
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Position = request.Position,
+                Height = request.Height,
+                Weight = request.Weight,
+                KitNumber = request.KitNumber
+            });
+
+            if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
