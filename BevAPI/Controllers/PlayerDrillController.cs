@@ -40,6 +40,7 @@ namespace BevAPI.Controllers
             var result = await _unitOfWork.PlayerDrill.AddAsync(new PlayerDrill
             {
                 PlayerId = request.PlayerId,
+                DrillId = request.DrillId,
                 DrillMark = request.DrillMark
             });
 
