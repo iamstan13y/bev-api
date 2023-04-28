@@ -13,7 +13,7 @@ namespace BevAPI.Controllers
         private readonly IAccountRepository _accountRepository;
 
         public AccountController(IAccountRepository accountRepository) => _accountRepository = accountRepository;
-        
+
         [HttpPost]
         public async Task<IActionResult> Post(AccountRequest request)
         {
@@ -25,7 +25,7 @@ namespace BevAPI.Controllers
                 PhoneNumber = request.PhoneNumber
             });
 
-            if(!result.Success) return BadRequest(result);
+            if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
