@@ -19,7 +19,7 @@ namespace BevAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await _unitOfWork.Drill.FindAsync(id);
+            var result = await _unitOfWork.PlayerDrill.FindAsync(id);
             if (!result.Success) return NotFound(result);
 
             return Ok(result);
