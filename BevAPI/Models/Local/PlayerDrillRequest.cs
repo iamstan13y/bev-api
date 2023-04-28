@@ -5,4 +5,9 @@
         public int PlayerId { get; set; }
         public int DrillMark { get; set; }
     }
+
+    public class UpdatePlayerDrillRequest : PlayerDrillRequest
+    {
+        public int Id { get; set; }
+    }
 }
