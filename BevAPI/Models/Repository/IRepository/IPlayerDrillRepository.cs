@@ -6,5 +6,6 @@ namespace BevAPI.Models.Repository.IRepository
     public interface IPlayerDrillRepository : IRepository<PlayerDrill>
     {
         Task<Result<PlayerDrill>> GetByPlayerIdAsync(int playerId);
+        Task<Result<IEnumerable<PlayerDrill>>> GetByDrillIdAsync(int drillId);
     }
 }
