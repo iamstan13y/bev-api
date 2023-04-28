@@ -35,12 +35,12 @@ namespace BevAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(DrillRequest request)
+        public async Task<IActionResult> Post(PlayerDrillRequest request)
         {
-            var result = await _unitOfWork.Drill.AddAsync(new Drill
+            var result = await _unitOfWork.PlayerDrill.AddAsync(new PlayerDrill
             {
-                MaxMark = request.MaxMark,
-                MinMark = request.MinMark
+                PlayerId = request.PlayerId,
+                DrillMark = request.DrillMark
             });
 
             _unitOfWork.SaveChanges();
