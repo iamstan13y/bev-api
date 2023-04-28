@@ -13,12 +13,26 @@ namespace BevAPI.Models.Repository
 
         public async Task<Result<PlayerDrill>> GetByPlayerIdAsync(int playerId)
         {
-            var player = await _dbSet
+            var playerDrill = await _dbSet
                 .Where(x => x.PlayerId == playerId)
+                .Include(x => x.Player)
+                .Include(x => x.Drill)
                 .FirstOrDefaultAsync();
-            if (player == null) return new Result<PlayerDrill>(false, "Player Drill not found.");
 
-            return new Result<PlayerDrill>(player);
+            if (playerDrill == null) return new Result<PlayerDrill>(false, "Player Drill not found.");
+
+            return new Result<PlayerDrill>(playerDrill);
+        }
+
+        public async Task<Result<IEnumerable<PlayerDrill>>> GetByDrillIdAsync(int drillId)
+        {
+            var playerDrills = await _dbSet
+                .Where(x => x.DrillId == drillId)
+                .Include(x => x.Player)
+                .Include(x => x.Drill)
+                .ToListAsync();
+
+            return new Result<IEnumerable<PlayerDrill>>(playerDrills);
         }
     }
 }
