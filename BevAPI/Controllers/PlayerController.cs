@@ -60,7 +60,7 @@ namespace BevAPI.Controllers
             });
 
             _unitOfWork.SaveChanges();
-            
+
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
