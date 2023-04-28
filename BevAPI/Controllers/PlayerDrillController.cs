@@ -58,6 +58,7 @@ namespace BevAPI.Controllers
             {
                 Id = request.Id,
                 PlayerId = request.PlayerId,
+                DrillId = request.DrillId,
                 DrillMark = request.DrillMark
             });
 
