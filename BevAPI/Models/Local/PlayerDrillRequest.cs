@@ -3,6 +3,7 @@
     public class PlayerDrillRequest
     {
         public int PlayerId { get; set; }
+        public int DrillId { get; set; }
         public int DrillMark { get; set; }
     }
 
