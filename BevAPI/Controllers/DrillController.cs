@@ -26,7 +26,7 @@ namespace BevAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(DrillRequest request)
+        private async Task<IActionResult> Post(DrillRequest request)
         {
             var result = await _unitOfWork.Drill.AddAsync(new Drill
             {
