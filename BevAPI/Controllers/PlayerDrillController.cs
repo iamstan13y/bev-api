@@ -1,6 +1,10 @@
-﻿namespace BevAPI.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace BevAPI.Controllers
 {
-    public class PlayerDrillController
+    [Route("api/v1/[controller]")]
+    [ApiController]
+    public class PlayerDrillController : ControllerBase
     {
     }
 }
