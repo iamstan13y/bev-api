@@ -14,7 +14,7 @@ namespace BevAPI.Controllers
         public PlayerDrillController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         [HttpGet]
-        public async Task<IActionResult> Get() => Ok(await _unitOfWork.Drill.GetAllAsync());
+        public async Task<IActionResult> Get() => Ok(await _unitOfWork.PlayerDrill.GetAllAsync());
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
