@@ -30,6 +30,7 @@ namespace BevAPI.Controllers
         {
             var result = await _unitOfWork.Drill.AddAsync(new Drill
             {
+                Type = request.Type,
                 MaxMark = request.MaxMark,
                 MinMark = request.MinMark
             });
@@ -47,6 +48,7 @@ namespace BevAPI.Controllers
             var result = await _unitOfWork.Drill.UpdateAsync(new Drill
             {
                 Id = request.Id,
+                Type = request.Type,
                 MaxMark = request.MaxMark,
                 MinMark = request.MinMark
             });
