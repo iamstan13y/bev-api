@@ -30,6 +30,7 @@ namespace BevAPI.Models.Repository
                 .Where(x => x.DrillId == drillId)
                 .Include(x => x.Player)
                 .Include(x => x.Drill)
+                .OrderByDescending(x => x.DrillMark)
                 .ToListAsync();
 
             return new Result<IEnumerable<PlayerDrill>>(playerDrills);
