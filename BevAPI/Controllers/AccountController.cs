@@ -31,7 +31,6 @@ namespace BevAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
         public async Task<IActionResult> Get(int id)
         {
             var result = await _accountRepository.GetByIdAsync(id);
