@@ -26,13 +26,7 @@ namespace BevAPI.Controllers
         }
 
         [HttpGet("player/{playerId}")]
-        public async Task<IActionResult> GetByPlayerId(int playerId)
-        {
-            var result = await _unitOfWork.PlayerDrill.GetByPlayerIdAsync(playerId);
-            if (!result.Success) return NotFound(result);
-
-            return Ok(result);
-        }
+        public async Task<IActionResult> GetByPlayerId(int playerId) => Ok(await _unitOfWork.PlayerDrill.GetByPlayerIdAsync(playerId));
 
         [HttpGet("drill/{drillId}")]
         public async Task<IActionResult> GetByDrillId(int drillId) => Ok(await _unitOfWork.PlayerDrill.GetByDrillIdAsync(drillId));
